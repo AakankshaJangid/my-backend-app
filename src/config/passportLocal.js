@@ -3,7 +3,7 @@ const LocalStratery = require('passport-local').Strategy
 const db = require('../models')
 
 passport.use(new LocalStratery({
-    usernameField: 'username',  // we want to username as the login field
+    usernameField: 'username',
 }, async function(username,password,done){
     return await db.user.findByPk(username).then(async data => {
         if(!data){
